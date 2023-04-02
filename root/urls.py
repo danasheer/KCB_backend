@@ -15,7 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from branches.views import BrancheListView, BrancheCreateView, BrancheUpdateView, BrancheDeleteView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    # path("api/login/", LoginView.as_view(), name="login"),
+    path("api/branches/", BrancheListView.as_view(), name="branches"),
+    path("api/branches/create/", BrancheCreateView.as_view(), name="create"),
+    path("api/branches/update/<int:pk>/",
+         BrancheUpdateView.as_view(), name="update"),
+    path("api/branches/delete/<int:pk>/",
+         BrancheDeleteView.as_view(), name="delete"),
+
 ]
