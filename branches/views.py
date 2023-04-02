@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListAPIView, CreateAPIView, DestroyAPIView, RetrieveAPIView, UpdateAPIView
+from rest_framework.generics import ListAPIView, CreateAPIView, DestroyAPIView, RetrieveAPIView, UpdateAPIView
 from branches import models
 from .serializer import BrancheSerializer, FloorSerializer
 from django.contrib.auth import get_user_model
