@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework.generics import ListAPIView, CreateAPIView, DestroyAPIView, RetrieveAPIView, UpdateAPIView
 from branches import models
-from .serializer import BrancheSerializer, FloorSerializer
+from .serializer import BrancheSerializer, FloorSerializer, DepartmentSerializer
 from django.contrib.auth import get_user_model
 from users.permissions import IsAuthenticated, IsAdminUser, AllowAny, IsOwner
 from rest_framework.response import Response
@@ -65,6 +65,37 @@ class FloorUpdateView(UpdateAPIView):
 class FloorDeleteView(DestroyAPIView):
     queryset = models.Floor.objects.all()
     serializer_class = FloorSerializer
+    lookup_field = 'id'
+    lookup_url_kwarg = 'object_id'
+    permission_classes = [AllowAny]
+
+
+class PrintersListView(ListAPIView):
+    queryset = models.printer.objects.all()
+    serializer_class = DepartmentSerializer
+    permission_classes = [AllowAny]
+
+
+class PrintersCreateView(CreateAPIView):
+    queryset = models.printer.objects.all()
+    serializer_class = DepartmentSerializer
+    permission_classes = [AllowAny]
+
+    def perform_create(self, serializer):
+        serializer.save(author=self.request.user)
+
+
+class PrintersUpdateView(UpdateAPIView):
+    queryset = models.printer.objects.all()
+    serializer_class = DepartmentSerializer
+    lookup_field = 'id'
+    lookup_url_kwarg = 'object_id'
+    permission_classes = [AllowAny]
+
+
+class PrintersDeleteView(DestroyAPIView):
+    queryset = models.printer.objects.all()
+    serializer_class = DepartmentSerializer
     lookup_field = 'id'
     lookup_url_kwarg = 'object_id'
     permission_classes = [AllowAny]

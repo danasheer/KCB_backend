@@ -12,3 +12,9 @@ class FloorSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Floor
         fields = '__all__'
+
+
+class DepartmentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.department
+        fields = '__all__'
