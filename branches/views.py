@@ -27,7 +27,6 @@ class BrancheUpdateView(UpdateAPIView):
     queryset = models.Branche.objects.all()
     serializer_class = BrancheSerializer
     lookup_field = 'id'
-    lookup_url_kwarg = 'object_id'
     permission_classes = [AllowAny]
 
 
@@ -35,7 +34,6 @@ class BrancheDeleteView(DestroyAPIView):
     queryset = models.Branche.objects.all()
     serializer_class = BrancheSerializer
     lookup_field = 'id'
-    lookup_url_kwarg = 'object_id'
     permission_classes = [AllowAny]
 
 
@@ -58,7 +56,6 @@ class FloorUpdateView(UpdateAPIView):
     queryset = models.Floor.objects.all()
     serializer_class = FloorSerializer
     lookup_field = 'id'
-    lookup_url_kwarg = 'object_id'
     permission_classes = [AllowAny]
 
 
@@ -66,7 +63,6 @@ class FloorDeleteView(DestroyAPIView):
     queryset = models.Floor.objects.all()
     serializer_class = FloorSerializer
     lookup_field = 'id'
-    lookup_url_kwarg = 'object_id'
     permission_classes = [AllowAny]
 
 
@@ -89,7 +85,6 @@ class DepartmentUpdateView(UpdateAPIView):
     queryset = models.department.objects.all()
     serializer_class = DepartmentSerializer
     lookup_field = 'id'
-    lookup_url_kwarg = 'object_id'
     permission_classes = [AllowAny]
 
 
@@ -97,7 +92,6 @@ class DepartmentDeleteView(DestroyAPIView):
     queryset = models.department.objects.all()
     serializer_class = DepartmentSerializer
     lookup_field = 'id'
-    lookup_url_kwarg = 'object_id'
     permission_classes = [AllowAny]
 
 
@@ -120,7 +114,6 @@ class PrintersUpdateView(UpdateAPIView):
     queryset = models.printer.objects.all()
     serializer_class = DepartmentSerializer
     lookup_field = 'id'
-    lookup_url_kwarg = 'object_id'
     permission_classes = [AllowAny]
 
 
@@ -128,5 +121,4 @@ class PrintersDeleteView(DestroyAPIView):
     queryset = models.printer.objects.all()
     serializer_class = DepartmentSerializer
     lookup_field = 'id'
-    lookup_url_kwarg = 'object_id'
     permission_classes = [AllowAny]
