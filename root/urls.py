@@ -15,8 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from branches.views import BrancheListView, BrancheCreateView, BrancheUpdateView, BrancheDeleteView, FloorListView, FloorCreateView, FloorUpdateView, FloorDeleteView, DepartmentListView, DepartmentCreateView, DepartmentUpdateView, DepartmentDeleteView, PrinterListView, PrinterCreateView, PrinterUpdateView, PrinterDeleteView
-from employees.views import EmployeeListView, EmployeeCreateView, EmployeeUpdateView, EmployeeDeleteView,
+from branches.views import BrancheListView, BrancheCreateView, BrancheUpdateView, BrancheDeleteView, FloorListView, FloorCreateView, FloorUpdateView, FloorDeleteView, DepartmentListView, DepartmentCreateView, DepartmentUpdateView, DepartmentDeleteView, PrintersListView, PrintersCreateView, PrintersUpdateView, PrintersDeleteView
+from employees.views import EmployeeListView, EmployeeCreateView, EmployeeUpdateView, EmployeeDeleteView, ComputerListView, ComputerCreateView, ComputerUpdateView, ComputerDeleteView, MonitorListView, MonitorCreateView, MonitorUpdateView, MonitorDeleteView, ScannerListView, ScannerCreateView, ScannerUpdateView, ScannerDeleteView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -45,11 +45,29 @@ urlpatterns = [
          DepartmentUpdateView.as_view(), name="update"),
     path("api/departments/delete/<int:pk>/",
          DepartmentDeleteView.as_view(), name="delete"),
-    path("api/printers/", PrinterListView.as_view(), name="printers"),
-    path("api/printers/create/", PrinterCreateView.as_view(), name="create"),
+    path("api/printers/", PrintersListView.as_view(), name="printers"),
+    path("api/printers/create/", PrintersCreateView.as_view(), name="create"),
     path("api/printers/update/<int:pk>/",
-         PrinterUpdateView.as_view(), name="update"),
+         PrintersUpdateView.as_view(), name="update"),
     path("api/printers/delete/<int:pk>/",
-         PrinterDeleteView.as_view(), name="delete"),
+         PrintersDeleteView.as_view(), name="delete"),
+    path("api/computers/", ComputerListView.as_view(), name="computers"),
+    path("api/computers/create/", ComputerCreateView.as_view(), name="create"),
+    path("api/computers/update/<int:pk>/",
+         ComputerUpdateView.as_view(), name="update"),
+    path("api/computers/delete/<int:pk>/",
+         ComputerDeleteView.as_view(), name="delete"),
+    path("api/monitors/", MonitorListView.as_view(), name="monitors"),
+    path("api/monitors/create/", MonitorCreateView.as_view(), name="create"),
+    path("api/monitors/update/<int:pk>/",
+         MonitorUpdateView.as_view(), name="update"),
+    path("api/monitors/delete/<int:pk>/",
+         MonitorDeleteView.as_view(), name="delete"),
+    path("api/scanners/", ScannerListView.as_view(), name="scanners"),
+    path("api/scanners/create/", ScannerCreateView.as_view(), name="create"),
+    path("api/scanners/update/<int:pk>/",
+         ScannerUpdateView.as_view(), name="update"),
+    path("api/scanners/delete/<int:pk>/",
+         ScannerDeleteView.as_view(), name="delete"),
 
 ]
