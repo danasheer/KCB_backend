@@ -18,3 +18,9 @@ class DepartmentSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.department
         fields = '__all__'
+
+
+class PrinterSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.printer
+        fields = '__all__'

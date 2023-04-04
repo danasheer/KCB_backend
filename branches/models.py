@@ -37,4 +37,4 @@ class printer(models.Model):
     department = models.ForeignKey(department, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"{self.ip} - {self.serialnumber}"
+        return f"{self.ip} - {self.serialnumber} - {self.model} - {self.invontorynumber} - {self.department}"

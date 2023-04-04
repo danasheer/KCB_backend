@@ -70,6 +70,37 @@ class FloorDeleteView(DestroyAPIView):
     permission_classes = [AllowAny]
 
 
+class DepartmentListView(ListAPIView):
+    queryset = models.department.objects.all()
+    serializer_class = DepartmentSerializer
+    permission_classes = [AllowAny]
+
+
+class DepartmentCreateView(CreateAPIView):
+    queryset = models.department.objects.all()
+    serializer_class = DepartmentSerializer
+    permission_classes = [AllowAny]
+
+    def perform_create(self, serializer):
+        serializer.save(author=self.request.user)
+
+
+class DepartmentUpdateView(UpdateAPIView):
+    queryset = models.department.objects.all()
+    serializer_class = DepartmentSerializer
+    lookup_field = 'id'
+    lookup_url_kwarg = 'object_id'
+    permission_classes = [AllowAny]
+
+
+class DepartmentDeleteView(DestroyAPIView):
+    queryset = models.department.objects.all()
+    serializer_class = DepartmentSerializer
+    lookup_field = 'id'
+    lookup_url_kwarg = 'object_id'
+    permission_classes = [AllowAny]
+
+
 class PrintersListView(ListAPIView):
     queryset = models.printer.objects.all()
     serializer_class = DepartmentSerializer
