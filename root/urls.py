@@ -17,10 +17,11 @@ from django.contrib import admin
 from django.urls import path
 from branches.views import BrancheListView, BrancheCreateView, BrancheUpdateView, BrancheDeleteView, FloorListView, FloorCreateView, FloorUpdateView, FloorDeleteView, DepartmentListView, DepartmentCreateView, DepartmentUpdateView, DepartmentDeleteView, PrintersListView, PrintersCreateView, PrintersUpdateView, PrintersDeleteView
 from employees.views import EmployeeListView, EmployeeCreateView, EmployeeUpdateView, EmployeeDeleteView, ComputerListView, ComputerCreateView, ComputerUpdateView, ComputerDeleteView, MonitorListView, MonitorCreateView, MonitorUpdateView, MonitorDeleteView, ScannerListView, ScannerCreateView, ScannerUpdateView, ScannerDeleteView
+from users.views import LoginView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    # path("api/login/", LoginView.as_view(), name="login"),
+    path("api/login/", LoginView.as_view(), name="login"),
 
     #     BRANCHES
     path("api/branches/", BrancheListView.as_view(), name="branches"),
