@@ -41,7 +41,7 @@ urlpatterns = [
     #          FloorDeleteView.as_view(), name="delete"),
 
 
-    #     path("api/employees/", EmployeeListView.as_view(), name="employees"),
+    path("api/employees/", EmployeeListView.as_view(), name="employees"),
     #     path("api/employees/create/", EmployeeCreateView.as_view(), name="create"),
     #     path("api/employees/update/<int:pk>/",
     #          EmployeeUpdateView.as_view(), name="update"),
