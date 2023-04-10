@@ -17,7 +17,7 @@ class Computer(models.Model):
     ip = models.CharField(max_length=255)
     serialnumber = models.CharField(max_length=255)
     model = models.CharField(max_length=255)
-    invontorynumber = models.IntegerField()
+    invontorynumber = models.CharField(max_length=255)
     employee = models.ForeignKey(Employee, on_delete=models.CASCADE)
 
     def __str__(self):

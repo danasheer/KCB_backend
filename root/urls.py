@@ -69,11 +69,11 @@ urlpatterns = [
     #     COMPUTERS
     path("api/computers/", ComputerListView.as_view(), name="computers"),
 
-    #     path("api/computers/create/", ComputerCreateView.as_view(), name="create"),
-    #     path("api/computers/update/<int:pk>/",
-    #          ComputerUpdateView.as_view(), name="update"),
-    #     path("api/computers/delete/<int:pk>/",
-    #          ComputerDeleteView.as_view(), name="delete"),
+    # path("api/computers/create/", ComputerCreateView.as_view(), name="create"),
+    # path("api/computers/update/<int:pk>/",
+    #      ComputerUpdateView.as_view(), name="update"),
+    # path("api/computers/delete/<int:pk>/",
+    #      ComputerDeleteView.as_view(), name="delete"),
 
     #     MONITORS
     path("api/monitors/", MonitorListView.as_view(), name="monitors"),
