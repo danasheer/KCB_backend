@@ -24,3 +24,14 @@ class ScannerSerializer(serializers.ModelSerializer):
     class Meta:
         model = Scanner
         fields = '__all__'
+
+
+class EmployeeDetailSerializer(serializers.ModelSerializer):
+    computers = ComputerSerializer(many=True)
+    monitors = MonitorSerializer(many=True)
+    scanners = ScannerSerializer(many=True)
+
+    class Meta:
+        model = Employee
+        fields = ['id', 'name', 'position', 'department',
+                  'computers', 'monitors', 'scanners']

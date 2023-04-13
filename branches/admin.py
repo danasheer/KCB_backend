@@ -1,10 +1,10 @@
 from django.contrib import admin
-from .models import Branche, Floor, department, printer
+from .models import Branche, Floor, Department, printer
 
 
 admin.site.register(Branche)
 admin.site.register(Floor)
-admin.site.register(department)
+admin.site.register(Department)
 admin.site.register(printer)
 
 

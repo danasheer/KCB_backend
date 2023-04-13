@@ -21,7 +21,7 @@ class Floor(models.Model):
         return f"{self.number}"
 
 
-class department(models.Model):
+class Department(models.Model):
     name = models.CharField(max_length=255)
     floor = models.ForeignKey(Floor, on_delete=models.CASCADE)
 
@@ -34,7 +34,7 @@ class printer(models.Model):
     serialnumber = models.CharField(max_length=255)
     model = models.CharField(max_length=255)
     invontorynumber = models.CharField(max_length=255)
-    department = models.ForeignKey(department, on_delete=models.CASCADE)
+    department = models.ForeignKey(Department, on_delete=models.CASCADE)
 
     def __str__(self):
         return f"{self.ip} - {self.serialnumber} - {self.model} - {self.invontorynumber} - {self.department}"

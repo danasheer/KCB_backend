@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework.generics import ListAPIView, CreateAPIView, DestroyAPIView, RetrieveAPIView, UpdateAPIView
 from branches import models
-from .serializer import BrancheSerializer, FloorSerializer, PrinterSerializer, DepartmentSerializer
+from .serializer import BrancheSerializer, FloorSerializer, PrinterSerializer, DepartmentSerializer, DepartmentDetailSerializer
 from django.contrib.auth import get_user_model
 from users.permissions import IsAuthenticated, IsAdminUser, AllowAny, IsOwner
 from rest_framework.response import Response
@@ -67,13 +67,13 @@ class FloorDeleteView(DestroyAPIView):
 
 
 class DepartmentListView(ListAPIView):
-    queryset = models.department.objects.all()
+    queryset = models.Department.objects.all()
     serializer_class = DepartmentSerializer
     permission_classes = [AllowAny]
 
 
 class DepartmentCreateView(CreateAPIView):
-    queryset = models.department.objects.all()
+    queryset = models.Department.objects.all()
     serializer_class = DepartmentSerializer
     permission_classes = [AllowAny]
 
@@ -82,15 +82,22 @@ class DepartmentCreateView(CreateAPIView):
 
 
 class DepartmentUpdateView(UpdateAPIView):
-    queryset = models.department.objects.all()
+    queryset = models.Department.objects.all()
     serializer_class = DepartmentSerializer
     lookup_field = 'id'
     permission_classes = [AllowAny]
 
 
 class DepartmentDeleteView(DestroyAPIView):
-    queryset = models.department.objects.all()
+    queryset = models.Department.objects.all()
     serializer_class = DepartmentSerializer
+    lookup_field = 'id'
+    permission_classes = [AllowAny]
+
+
+class DepartmentRetrieveView(RetrieveAPIView):
+    queryset = models.Department.objects.all()
+    serializer_class = DepartmentDetailSerializer
     lookup_field = 'id'
     permission_classes = [AllowAny]
 

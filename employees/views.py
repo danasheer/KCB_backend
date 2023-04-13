@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from rest_framework.generics import ListAPIView, CreateAPIView, DestroyAPIView, UpdateAPIView
-from .serializers import EmployeeSerializer, ComputerSerializer, MonitorSerializer, ScannerSerializer
+from rest_framework.generics import ListAPIView, CreateAPIView, DestroyAPIView, UpdateAPIView, RetrieveAPIView
+from .serializers import EmployeeDetailSerializer, EmployeeSerializer, ComputerSerializer, MonitorSerializer, ScannerSerializer
 from employees import models
 
 
@@ -29,6 +29,12 @@ class EmployeeDeleteView(DestroyAPIView):
     serializer_class = EmployeeSerializer
     lookup_field = 'id'
     lookup_url_kwarg = 'object_id'
+
+
+class EmployeeRetrieveView(RetrieveAPIView):
+    queryset = models.Employee.objects.all()
+    serializer_class = EmployeeDetailSerializer
+    lookup_field = 'id'
 
 
 class ComputerListView(ListAPIView):
