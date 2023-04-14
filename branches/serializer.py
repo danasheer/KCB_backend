@@ -21,6 +21,28 @@ class DepartmentSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
+class BrancheDetailSerializer(serializers.ModelSerializer):
+    departments = serializers.SerializerMethodField('get_all_departments')
+
+    def get_all_departments(self, obj):
+        departments = []
+        for floor in obj.floors.all():
+            # floor.departments.all()
+            departments.extend(floor.departments.all())
+        print(departments)
+        # return departments
+        # print(obj.floors.all())
+        # departments = obj.floor
+        # serializer = DepartmentSerializer(departments, many=True)
+        # return serializer.data
+        return DepartmentSerializer(departments, many=True).data
+        # return ""
+
+    class Meta:
+        model = models.Branche
+        fields = ['id', 'name',  'departments']
+
+
 class DepartmentDetailSerializer(serializers.ModelSerializer):
     employees = EmployeeSerializer(many=True)
 

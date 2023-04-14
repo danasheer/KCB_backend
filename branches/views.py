@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from rest_framework.generics import ListAPIView, CreateAPIView, DestroyAPIView, RetrieveAPIView, UpdateAPIView
 from branches import models
-from .serializer import BrancheSerializer, FloorSerializer, PrinterSerializer, DepartmentSerializer, DepartmentDetailSerializer
+from .serializer import BrancheSerializer, FloorSerializer, PrinterSerializer, BrancheDetailSerializer, DepartmentSerializer, DepartmentDetailSerializer
 from django.contrib.auth import get_user_model
 from users.permissions import IsAuthenticated, IsAdminUser, AllowAny, IsOwner
 from rest_framework.response import Response
@@ -33,6 +33,13 @@ class BrancheUpdateView(UpdateAPIView):
 class BrancheDeleteView(DestroyAPIView):
     queryset = models.Branche.objects.all()
     serializer_class = BrancheSerializer
+    lookup_field = 'id'
+    permission_classes = [AllowAny]
+
+
+class BranchDetailView(RetrieveAPIView):
+    queryset = models.Branche.objects.all()
+    serializer_class = BrancheDetailSerializer
     lookup_field = 'id'
     permission_classes = [AllowAny]
 

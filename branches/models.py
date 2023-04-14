@@ -15,7 +15,8 @@ class Branche(models.Model):
 
 class Floor(models.Model):
     number = models.IntegerField()
-    branch = models.ForeignKey(Branche, on_delete=models.CASCADE)
+    branch = models.ForeignKey(
+        Branche, on_delete=models.CASCADE, related_name='floors')
 
     def __str__(self):
         return f"{self.number}"
@@ -23,7 +24,8 @@ class Floor(models.Model):
 
 class Department(models.Model):
     name = models.CharField(max_length=255)
-    floor = models.ForeignKey(Floor, on_delete=models.CASCADE)
+    floor = models.ForeignKey(
+        Floor, on_delete=models.CASCADE, related_name='departments')
 
     def __str__(self):
         return self.name
