@@ -8,9 +8,10 @@ User = get_user_model()
 
 class Branche(models.Model):
     name = models.CharField(max_length=255)
+    image = models.ImageField(upload_to='branches', blank=True, null=True)
 
     def __str__(self):
-        return self.name
+        return f'{self.name}'
 
 
 class Floor(models.Model):

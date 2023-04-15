@@ -18,6 +18,9 @@ from django.urls import path
 from branches.views import BranchDetailView, BrancheListView, BrancheCreateView, BrancheUpdateView, BrancheDeleteView, FloorListView, FloorCreateView, FloorUpdateView, FloorDeleteView, DepartmentListView, DepartmentRetrieveView, DepartmentCreateView, DepartmentUpdateView, DepartmentDeleteView, PrintersListView, PrintersCreateView, PrintersUpdateView, PrintersDeleteView
 from employees.views import EmployeeListView, EmployeeCreateView, EmployeeRetrieveView, EmployeeUpdateView, EmployeeDeleteView, ComputerListView, ComputerCreateView, ComputerUpdateView, ComputerDeleteView, MonitorListView, MonitorCreateView, MonitorUpdateView, MonitorDeleteView, ScannerListView, ScannerCreateView, ScannerUpdateView, ScannerDeleteView
 from users.views import LoginView
+from root import settings
+from django.conf.urls.static import static
+
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -100,3 +103,6 @@ urlpatterns = [
     #          ScannerDeleteView.as_view(), name="delete"),
 
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL,
+                          document_root=settings.MEDIA_ROOT)
